@@ -38,7 +38,8 @@ class NHBasicList extends Component {
     super(props);
     //datas = getLatestNews();
     this.state ={ isLoading: true}
-    this.datas = [{"id":"5ab35ce44cdfec000a957e3f","title":"HA IT Strategy 1535","content":"1535 to know the latest update of IT Transformation? Want to learn more about the transformation experiences worldwide? Want to have YOUR say on the transformation journey? This is the site for you! ","caption":"1535 to know the latest update of IT Transformation?","hospitals":["PMH"],"postDtm":1521732900000}]
+    this.datas = [
+      {"id":"5ab35ce44cdfec000a957e3f","title":"HA IT Strategy 1535","content":"1535 to know the latest update of IT Transformation? Want to learn more about the transformation experiences worldwide? Want to have YOUR say on the transformation journey? This is the site for you! ","caption":"1535 to know the latest update of IT Transformation?","hospitals":["PMH"],"postDtm":1521732900000}]
   }
 
   componentDidMount(){
@@ -88,7 +89,7 @@ class NHBasicList extends Component {
           <List
             dataArray={this.state.datas}
             renderRow={data =>
-              <ListItem>
+              <ListItem button onPress={() => this.props.navigation.navigate('NHCardShowcase', {id:data.id})}>
                 <Left>
                   <Text>
                     {data.title}

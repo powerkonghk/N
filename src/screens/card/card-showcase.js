@@ -15,15 +15,68 @@ import {
   Right,
   Body
 } from "native-base";
+import { FlatList, ActivityIndicator, View  } from 'react-native';
 import styles from "./styles";
+import Moment from 'moment';
+
 
 const deviceWidth = Dimensions.get("window").width;
 const logo = require("../../../assets/logo.png");
 const cardImage = require("../../../assets/drawer-cover.png");
 
+const url = "http://52.76.36.184:9090";
+
+const path = "/CIT-1.0/rest/landing/news/";
 class NHCardShowcase extends Component {
+
+  constructor(props){
+    super(props);
+    const navParams = this.props.navigation.state.params;
+    this.datas = [];
+    this.state ={ 
+      isLoading: true, 
+      newsId: navParams.id,
+   
+    }
+    console.log(navParams);
+
+    console.log('###'+url+path+this.state.newsId);
+  }
+
+  componentDidMount(){
+    return fetch(url+path+this.state.newsId)
+      .then((response) => response.json())
+      .then((responseJson) => {
+        console.log('>>>>>>>'+JSON.stringify(responseJson.news[0]));
+        this.setState({
+          isLoading: false,
+          datas: responseJson.news[0],          
+   
+        }, function(){
+
+        });
+
+      })
+      .catch((error) =>{
+        console.error(error);
+      });
+  }
+
   render() {
+    if(this.state.isLoading){
+      return(
+        <View style={{flex: 1, padding: 20}}>
+          <ActivityIndicator/>
+        </View>
+      )
+    }
+
+    Moment.locale('en');
+    var dt = this.state.datas.postDtm;
+
+
     return (
+
       <Container style={styles.container}>
         <Header>
           <Left>
@@ -43,8 +96,13 @@ class NHCardShowcase extends Component {
               <Left>
                 <Thumbnail source={logo} />
                 <Body>
-                  <Text>NativeBase</Text>
-                  <Text note>April 15, 2016</Text>
+                  <Text>{this.state.datas.title}</Text>
+                  
+                  
+                  <Text note>
+                  {Moment(dt).format('HH:mm d MMM YYYY')}
+                  </Text>
+                  
                 </Body>
               </Left>
             </CardItem>
@@ -62,11 +120,7 @@ class NHCardShowcase extends Component {
                   source={cardImage}
                 />
                 <Text>
-                  NativeBase is a free and source framework that enable
-                  developers to build high-quality mobile apps using React
-                  Native iOS and Android apps with a fusion of ES6. NativeBase
-                  builds a layer on top of React Native that provides you with
-                  basic set of components for mobile application development.
+                  {this.state.datas.content}
                 </Text>
               </Body>
             </CardItem>
@@ -74,7 +128,7 @@ class NHCardShowcase extends Component {
               <Left>
                 <Button transparent>
                   <Icon name="logo-github" />
-                  <Text>4,923 stars</Text>
+                  <Text>{this.state.datas.id} </Text>
                 </Button>
               </Left>
             </CardItem>
