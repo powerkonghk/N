@@ -31,6 +31,13 @@ const datas = [
     types: "12"
   },
   {
+    name: "List",
+    route: "NHList",
+    icon: "lock",
+    bg: "#5DCEE2",
+    types: "7"
+  },
+  {
     name: "Actionsheet",
     route: "Actionsheet",
     icon: "easel",
@@ -104,13 +111,7 @@ const datas = [
     bg: "#9F897C",
     types: "5"
   },
-  {
-    name: "List",
-    route: "NHList",
-    icon: "lock",
-    bg: "#5DCEE2",
-    types: "7"
-  },
+
   {
     name: "ListSwipe",
     route: "ListSwipe",

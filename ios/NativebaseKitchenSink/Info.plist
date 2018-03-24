@@ -35,6 +35,18 @@
 			</dict>
 		</dict>
 	</dict>
+	<!--
+	<dict>
+		<key>NSExceptionDomains</key>
+		<dict>
+			<key>52.76.36.184</key>
+			<dict>
+				<key>NSExceptionAllowsInsecureHTTPLoads</key>
+				<true/>
+			</dict>
+		</dict>
+	</dict>
+	-->
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string></string>
 	<key>UIAppFonts</key>
@@ -67,5 +79,6 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	
 </dict>
 </plist>
