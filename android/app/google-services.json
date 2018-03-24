@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "836953060699",
+    "firebase_url": "https://tallmyit.firebaseio.com",
+    "project_id": "tallmyit",
+    "storage_bucket": "tallmyit.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:836953060699:android:624e4390fc6b1d53",
+        "android_client_info": {
+          "package_name": "hk.org.ha.fcm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "836953060699-inqdhnvq254mk2ogkvl6nmbfn3q3t5v4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCwoG09SQEX8M6EK4ooqAFfNgCjrDOz9BE"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
