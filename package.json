@@ -29,6 +29,7 @@
     "preset": "react-native"
   },
   "dependencies": {
+    "ajv": "^6.4.0",
     "color": "1.0.3",
     "intl": "^1.2.5",
     "lodash": "4.13.1",
@@ -39,6 +40,7 @@
     "react-moment": "^0.7.0",
     "react-native": "0.52.0",
     "react-native-fcm": "^14.1.3",
+    "react-native-touch-id": "^4.0.1",
     "react-native-vector-icons": "4.3.0",
     "react-navigation": "1.5.0"
   }
