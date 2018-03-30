@@ -15,11 +15,13 @@ const optionalConfigObject = {
 
 class Home extends Component {
 
-  _pressHandler() {
+
+  authen(navigation) {
+
     TouchID.authenticate('to demo this react-native component', optionalConfigObject)
       .then(success => {
-        AlertIOS.alert('Authenticated Successfully');
-        this.props.navigation.navigate("DrawerOpen");
+
+        navigation.navigate("DrawerOpen");
       })
       .catch(error => {
         console.log(error);
@@ -46,22 +48,12 @@ class Home extends Component {
             <H3 style={styles.text}>CallMyIT</H3>
             <View style={{ marginTop: 8 }} />
             <H3 style={styles.text}>Hospital Authority ITO All rights reserved</H3>
-            <View style={{ marginTop: 8 }} >
-
-              <TouchableHighlight navigation={this.props.navigation} onPress={this._pressHandler}>
-
-                <Text>
-                  Authenticate with Touch ID
-                  </Text>
-
-              </TouchableHighlight>
-
-            </View>
+            
           </View>
           <View style={{ marginBottom: 80 }}>
             <Button
               style={{ backgroundColor: "#6FAF98", alignSelf: "center" }}
-              onPress={this._pressHandler}
+              onPress={()=>this.authen(this.props.navigation)}
             >
               <Text>Lets Go!</Text>
             </Button>
